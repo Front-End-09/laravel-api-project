@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\contentsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/menu',     [contentsController::class, 'indexMenu']);
+Route::post('/menu',    [contentsController::class,'storeMenu']);
+Route::delete('/menu/{id}', [contentsController::class,'deleteMenu']);
+Route::put('/menu',    [contentsController::class,'updateMenu']);
+Route::get('/menu/{id}', [contentsController::class,'detailMenu']);
