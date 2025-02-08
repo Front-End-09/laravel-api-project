@@ -27,7 +27,7 @@ class contentsController extends Controller
         $request->all(),
             [
                 'menuName' => 'required',
-                'url'      => 'required',
+                'url'      => 'required'
             ]
         );
         if($validator->fails()){
