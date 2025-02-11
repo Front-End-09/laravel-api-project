@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\contentsController;
 use App\Http\Controllers\subMenuController;
+use App\Models\subMenuModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,5 +28,8 @@ Route::put('/menu',    [contentsController::class,'updateMenu']);
 Route::get('/menu/{id}', [contentsController::class,'detailMenu']);
 
 // Sub Menu
-Route::get('/subMenu', [subMenuController::class,'indexSubMenu']);
+Route::get('/subMenu',  [subMenuController::class,'indexSubMenu']);
 Route::post('/subMenu', [subMenuController::class,'storeSubMenu']);
+Route::put('/subMenu',  [subMenuController::class,'updateSubMenu']);
+Route::get('subMenu/{id}', [subMenuController::class,'detailSubMenu']);
+Route::delete('/subMenu/{id}', [subMenuModel::class,'deleteDataSubMenu']);
