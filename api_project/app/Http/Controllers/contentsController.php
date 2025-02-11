@@ -62,6 +62,7 @@ class contentsController extends Controller
         return  $result;
    }
 
+   // Detail Menu
    public function detailMenu($id){
       $result = contentsModel::detailDataMenu($id);
        return $result;
