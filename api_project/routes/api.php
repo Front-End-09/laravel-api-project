@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\contentsController;
+use App\Http\Controllers\dropdownMenuController;
 use App\Http\Controllers\subMenuController;
 use App\Models\subMenuModel;
 use Illuminate\Http\Request;
@@ -33,3 +34,6 @@ Route::post('/subMenu', [subMenuController::class,'storeSubMenu']);
 Route::put('/subMenu',  [subMenuController::class,'updateSubMenu']);
 Route::get('subMenu/{id}', [subMenuController::class,'detailSubMenu']);
 Route::delete('/subMenu/{id}', [subMenuModel::class,'deleteDataSubMenu']);
+
+// Dropdown Menu
+Route::get('/dropdown', [dropdownMenuController::class,'dropdownMenu']);
