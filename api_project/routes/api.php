@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\contentsController;
 use App\Http\Controllers\dropdownMenuController;
+use App\Http\Controllers\slideController;
 use App\Http\Controllers\subMenuController;
 use App\Models\subMenuModel;
 use Illuminate\Http\Request;
@@ -37,3 +38,7 @@ Route::delete('/subMenu/{id}', [subMenuModel::class,'deleteDataSubMenu']);
 
 // Dropdown Menu
 Route::get('/dropdown', [dropdownMenuController::class,'dropdownMenu']);
+
+// List Slider
+Route::get('/slide',    [slideController::class,'indexSlide']);
+Route::post('/slide',   [slideController::class,'storeSlide']);
