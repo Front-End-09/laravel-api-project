@@ -23,22 +23,24 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/menu',     [contentsController::class, 'indexMenu']);
-Route::post('/menu',    [contentsController::class,'storeMenu']);
+Route::get('/menu',         [contentsController::class, 'indexMenu']);
+Route::post('/menu',        [contentsController::class,'storeMenu']);
 Route::delete('/menu/{id}', [contentsController::class,'deleteMenu']);
-Route::put('/menu',    [contentsController::class,'updateMenu']);
-Route::get('/menu/{id}', [contentsController::class,'detailMenu']);
+Route::put('/menu',         [contentsController::class,'updateMenu']);
+Route::get('/menu/{id}',    [contentsController::class,'detailMenu']);
 
 // Sub Menu
-Route::get('/subMenu',  [subMenuController::class,'indexSubMenu']);
-Route::post('/subMenu', [subMenuController::class,'storeSubMenu']);
-Route::put('/subMenu',  [subMenuController::class,'updateSubMenu']);
-Route::get('subMenu/{id}', [subMenuController::class,'detailSubMenu']);
+Route::get('/subMenu',         [subMenuController::class,'indexSubMenu']);
+Route::post('/subMenu',        [subMenuController::class,'storeSubMenu']);
+Route::put('/subMenu',         [subMenuController::class,'updateSubMenu']);
+Route::get('subMenu/{id}',     [subMenuController::class,'detailSubMenu']);
 Route::delete('/subMenu/{id}', [subMenuModel::class,'deleteDataSubMenu']);
 
 // Dropdown Menu
-Route::get('/dropdown', [dropdownMenuController::class,'dropdownMenu']);
+Route::get('/dropdown',   [dropdownMenuController::class,'dropdownMenu']);
 
 // List Slider
-Route::get('/slide',    [slideController::class,'indexSlide']);
-Route::post('/slide',   [slideController::class,'storeSlide']);
+Route::get('/slide',      [slideController::class,'indexSlide']);
+Route::post('/slide',     [slideController::class,'storeSlide']);
+Route::get('/slide/{id}', [slideController::class,'detailSlide']);
+Route::put('slide',      [slideController::class,'updateSlide']);

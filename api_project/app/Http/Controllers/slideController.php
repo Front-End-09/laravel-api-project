@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\slideModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Validator;
 
 class slideController extends Controller
@@ -37,9 +38,38 @@ class slideController extends Controller
             return responseController::client($validator->getMessageBag()->toArray());
         }else{
             $result = slideModel::storeDataSlide($request);
-            dd( $result );
             return $result;
         }
     }
 
+    // Detail Slide
+    public function detailSlide($id){
+         $result = slideModel::detailDataSlide($id);
+         return $result;
+    }
+
+    // Update Data Slide
+    public function updateSlide(Request $request){
+        $validate = Validator::make(
+            $request->all(),
+             [
+                'id'              => 'required',
+                'menu_id'         => 'required',
+                'title'           => 'required',
+                'title_kh'        => 'required',
+                'url'             => 'required',
+                'sequence'        => 'required',
+                'sub_title_en'    => 'required',
+                'sub_title_kh'    => 'required',
+                'btn_name_en'     => 'required',
+                'btn_name_kh'     => 'required'
+             ]
+        );
+        if($validate->fails()){
+           return responseController::client($validate->getMessageBag()->toArray());
+        }else{
+           $result = slideModel::updateDataSlide($request);
+           return $result;
+        }
+    }
 }
